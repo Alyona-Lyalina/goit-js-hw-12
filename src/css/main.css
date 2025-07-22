@@ -111,6 +111,7 @@
 
 .loader {
   position: relative;
+  display: block;
   width: 48px;
   height: 48px;
   margin: 40px auto;
@@ -149,6 +150,45 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.loader-text {
+  display: block;
+  text-align: center;
+  margin: 12px auto;
+
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.load-more {
+  display: block;
+  width: 125px;
+  max-width: 200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #4e75ff;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-top: 32px;
+  margin-bottom: 44px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease;
+}
+
+.load-more:hover {
+  background: #6c8cff;
 }
 
 .is-hidden {

@@ -1,17 +1,21 @@
 import SimpleLightbox from 'simplelightbox';
 
+// DOM elements for gallery, loader, load more button, and loader text
+const gallery = document.querySelector('.gallery');
+const loader = document.querySelector('.loader');
+const loadMoreBtn = document.querySelector('.load-more');
+const loaderText = document.querySelector('.loader-text');
+
+// Initialize SimpleLightbox for gallery images with captions
 let lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
 });
 
+// Create gallery markup from images array and insert into DOM
 export function createGallery(imgs) {
-  const gallery = document.querySelector('.gallery');
-
-  console.log(imgs);
   
-
-  return imgs
+  const markup = imgs
     .map(
       img => `
         <li class='item'>
@@ -35,23 +39,34 @@ export function createGallery(imgs) {
       `
     )
     .join('');
-}
-
-export function createLightbox() {
+  
+   gallery.insertAdjacentHTML('beforeend', markup); 
   lightbox.refresh();
 }
 
+// Clear gallery content
 export function clearGallery() {
-  const gallery = document.querySelector('.gallery');
   gallery.innerHTML = '';
 }
-
+// Show loader animation and text
 export function showLoader() {
-  const loader = document.querySelector('.loader');
-  loader.classList.remove('is-hidden'); 
+  loader.classList.remove('is-hidden');
+  loaderText.classList.remove('is-hidden');
 }
 
+// Hide loader animation and text
 export function hideLoader() {
-  const loader = document.querySelector('.loader');
-  loader.classList.add('is-hidden'); 
+  loader.classList.add('is-hidden');
+  loaderText.classList.add('is-hidden');
+}
+
+// Show Load More button and hide loader text
+export function showLoadMoreButton() {
+  loadMoreBtn.classList.remove('is-hidden');
+  loaderText.classList.add('is-hidden');
+}
+
+// Hide Load More button
+export function hideLoadMoreButton() {
+  loadMoreBtn.classList.add('is-hidden');
 }
